@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mobile Web Studio</title>
+    <title>정보 기말 JB</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,145 +13,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Mobile Web Studio 홈">
-        <span class="brand-mark">M</span>
-        <span>Mobile Web</span>
-      </a>
-      <nav class="nav-links" aria-label="주요 메뉴">
-        <a href="#auth">로그인</a>
-        <a href="#dashboard">내 데이터</a>
-        <a href="#features">기능</a>
-      </nav>
-      <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+    <main class="login-page">
+      <section class="login-card" aria-labelledby="loginTitle">
+        <p class="eyebrow">Information Final</p>
+        <h1 id="loginTitle">정보 기말 JB</h1>
+        <p class="login-copy">계정 정보를 입력해 로그인하세요.</p>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Member website</p>
-          <h1>회원가입부터 데이터 저장까지 담은 모바일 웹</h1>
-          <p class="hero-text">
-            사용자가 가입하고 로그인한 뒤, 개인 메모와 프로필 데이터를 저장해 볼 수 있는
-            웹사이트 시작 버전입니다.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#auth">로그인 시작</a>
-            <a class="text-button" href="#dashboard">데이터 보기</a>
-          </div>
-        </div>
-        <div class="phone-preview" aria-label="모바일 로그인 화면 미리보기">
-          <div class="phone-top"></div>
-          <div class="preview-card">
-            <span class="preview-pill"></span>
-            <strong>Welcome back</strong>
-            <span></span>
-            <span></span>
-            <button type="button">Sign in</button>
-          </div>
-          <div class="preview-grid">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </section>
+        <form class="login-form" id="loginForm">
+          <label>
+            아이디
+            <input type="text" name="userId" autocomplete="username" required />
+          </label>
+          <label>
+            비밀번호
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">로그인</button>
+        </form>
 
-      <section class="auth-section" id="auth">
-        <div class="auth-copy">
-          <p class="eyebrow">Account</p>
-          <h2>로그인 또는 회원가입</h2>
-          <p>
-            이 버전은 GitHub Pages에서도 동작하도록 브라우저 저장소에 사용자 데이터를 저장합니다.
-            실제 서비스 배포 전에는 서버형 인증으로 교체해야 합니다.
-          </p>
-        </div>
-
-        <div class="auth-panel" aria-live="polite">
-          <div class="tabs" role="tablist" aria-label="인증 방식 선택">
-            <button class="tab-button active" type="button" data-auth-tab="login">로그인</button>
-            <button class="tab-button" type="button" data-auth-tab="signup">회원가입</button>
-          </div>
-
-          <form class="auth-form active" id="loginForm">
-            <label>
-              이메일
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-            <label>
-              비밀번호
-              <input type="password" name="password" autocomplete="current-password" required />
-            </label>
-            <button class="primary-button" type="submit">로그인</button>
-          </form>
-
-          <form class="auth-form" id="signupForm">
-            <label>
-              이름
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-            <label>
-              이메일
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-            <label>
-              비밀번호
-              <input type="password" name="password" autocomplete="new-password" minlength="6" required />
-            </label>
-            <button class="primary-button" type="submit">회원가입</button>
-          </form>
-
-          <p class="form-message" id="authMessage"></p>
-        </div>
-      </section>
-
-      <section class="dashboard-section" id="dashboard">
-        <div class="section-heading">
-          <p class="eyebrow">User data</p>
-          <h2>사용자 데이터 저장소</h2>
-          <p>
-            로그인한 사용자는 프로필 상태와 개인 메모를 저장할 수 있습니다.
-          </p>
-        </div>
-
-        <div class="dashboard-grid">
-          <article class="profile-card">
-            <span class="status-dot"></span>
-            <p class="muted-label">현재 사용자</p>
-            <h3 id="currentUserName">로그인이 필요합니다</h3>
-            <p id="currentUserEmail">계정에 로그인하면 저장된 데이터가 표시됩니다.</p>
-            <button class="secondary-button" id="logoutButton" type="button" disabled>로그아웃</button>
-          </article>
-
-          <form class="data-card" id="dataForm">
-            <label>
-              프로필 상태
-              <input type="text" name="status" placeholder="예: 오늘 웹사이트 디자인 작업 중" disabled />
-            </label>
-            <label>
-              개인 메모
-              <textarea name="memo" rows="5" placeholder="저장하고 싶은 내용을 입력하세요." disabled></textarea>
-            </label>
-            <button class="primary-button" type="submit" disabled>데이터 저장</button>
-            <p class="form-message" id="dataMessage"></p>
-          </form>
-        </div>
-      </section>
-
-      <section class="feature-band" id="features">
-        <div>
-          <p class="eyebrow">Features</p>
-          <h2>회원 기반 웹사이트의 첫 구조</h2>
-        </div>
-        <ul>
-          <li>회원가입과 로그인 화면</li>
-          <li>사용자별 데이터 저장</li>
-          <li>모바일 우선 반응형 디자인</li>
-        </ul>
+        <p class="form-message" id="loginMessage" aria-live="polite"></p>
       </section>
     </main>
 
