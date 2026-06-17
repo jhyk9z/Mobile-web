@@ -17,7 +17,7 @@
       <section class="auth-card" aria-labelledby="authTitle">
         <p class="eyebrow">Information Final</p>
         <h1 id="authTitle">정보 기말 JB</h1>
-        <p class="auth-copy">로그인 후 단원별 정리 화면으로 이동합니다.</p>
+        <p class="auth-copy">로그인 후 단원별 학습 화면으로 이동합니다.</p>
 
         <div class="auth-tabs" role="tablist" aria-label="계정 메뉴">
           <button class="tab-button active" type="button" data-auth-mode="login">로그인</button>
@@ -59,8 +59,9 @@
     <main class="study-page hidden" id="studyPage">
       <header class="study-header">
         <div>
-          <p class="eyebrow">Study Sections</p>
+          <p class="eyebrow">StudyAce Mode</p>
           <h1>정보 기말 JB</h1>
+          <p class="study-subtitle">단원을 선택하고 개념, 용어, 퀴즈로 복습하세요.</p>
         </div>
         <div class="user-area">
           <span id="userBadge">사용자</span>
@@ -68,24 +69,40 @@
         </div>
       </header>
 
-      <section class="unit-grid" aria-label="단원 목록">
-        <article class="unit-card">
-          <span>01</span>
-          <h2>단원 제목 입력 예정</h2>
-          <p>수업 내용을 보내주면 핵심 개념, 용어, 시험 포인트로 정리합니다.</p>
-        </article>
-        <article class="unit-card">
-          <span>02</span>
-          <h2>단원 제목 입력 예정</h2>
-          <p>각 단원은 카드형 섹션으로 나누어 빠르게 복습할 수 있게 만들 예정입니다.</p>
-        </article>
-        <article class="unit-card">
-          <span>03</span>
-          <h2>단원 제목 입력 예정</h2>
-          <p>필요하면 예시, 표, 암기 포인트, 확인 문제까지 추가할 수 있습니다.</p>
-        </article>
+      <section class="study-layout">
+        <aside class="unit-sidebar" aria-label="단원 목록">
+          <div class="panel-heading">
+            <span>Units</span>
+            <strong id="unitCount">0</strong>
+          </div>
+          <div class="unit-list" id="unitList"></div>
+        </aside>
+
+        <section class="lesson-panel" aria-live="polite">
+          <div class="lesson-toolbar">
+            <div>
+              <p class="eyebrow">Current Unit</p>
+              <h2 id="lessonTitle">단원 선택</h2>
+            </div>
+            <div class="progress-box">
+              <span id="progressLabel">0%</span>
+              <div class="progress-track">
+                <span id="progressFill"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lesson-tabs" role="tablist" aria-label="학습 모드">
+            <button class="lesson-tab active" type="button" data-view="summary">개념</button>
+            <button class="lesson-tab" type="button" data-view="keywords">용어</button>
+            <button class="lesson-tab" type="button" data-view="quiz">퀴즈</button>
+          </div>
+
+          <div class="lesson-content" id="lessonContent"></div>
+        </section>
       </section>
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
   </body>
